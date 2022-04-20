@@ -26,12 +26,6 @@
 #tput setaf 8 = light blue
 ##################################################################################################################
 
-##################################################################################################################
-#
-#   DO NOT JUST RUN THIS. EXAMINE AND JUDGE. RUN AT YOUR OWN RISK.
-#
-##################################################################################################################
-
 # Problem solving commands
 
 # Read before using it.
@@ -45,79 +39,21 @@
 # git push --set-upstream origin master
 # git reset --hard orgin/master
 
-
-#setting up git
-#https://www.atlassian.com/git/tutorials/setting-up-a-repository/git-config
-#https://medium.com/clarusway/how-to-use-git-github-without-asking-for-authentication-always-passwordless-usage-of-private-git-8c32489bc2e9
-#https://blog.nillsf.com/index.php/2021/05/27/github-sso-using-password-protected-ssh-keys
-
 project=$(basename `pwd`)
-githubdir="arcolinuxiso"
 echo "-----------------------------------------------------------------------------"
-echo "this is project https://github.com/$githubdir/$project"
+echo "this is project https://github.com/erikdubois/"$project
 echo "-----------------------------------------------------------------------------"
+git config --global pull.rebase false
+git config --global user.name "Erik Dubois"
+git config --global user.email "erik.dubois@gmail.com"
+sudo git config --system core.editor nano
+#git config --global credential.helper cache
+#git config --global credential.helper 'cache --timeout=32000'
+git config --global push.default simple
 
-echo
-tput setaf 1
-echo "################################################################"
-echo "#####  Choose wisely - one time setup after clean install   ####"
-echo "################################################################"
-tput sgr0
-echo
-echo "Select the correct desktop"
-echo
-echo "0.  Do nothing"
-echo "1.  Erik"
-echo "2.  Raniel"
-echo "3.  Steve"
-echo "Type the number..."
+git remote set-url origin git@github.com-edu:erikdubois/$project
 
-read CHOICE
-
-case $CHOICE in
-
-    0 )
-      echo
-      echo "########################################"
-      echo "We did nothing as per your request"
-      echo "########################################"
-      echo
-      ;;
-
-    1 )
-			git config --global pull.rebase false
-			git config --global push.default simple
-			git config --global user.name "arcolinuxz"
-			git config --global user.email "arcolinuxinfo@gmail.com"
-			sudo git config --system core.editor nano
-      git remote set-url origin git@github.com-arc:$githubdir/$project
-      echo
-      echo "Everything set"
-      ;;
-    2 )
-			git config --global pull.rebase false
-			git config --global push.default simple
-			git config --global user.name "Raniel Laguna"
-			git config --global user.email "avraniel@gmail.com"
-			sudo git config --system core.editor nano
-			git config --global credential.helper cache
-			git config --global credential.helper 'cache --timeout=32000'
-      ;;
-    3 )
-			git config --global pull.rebase false
-			git config --global push.default simple
-			git config --global user.name "Steve Younger"
-			git config --global user.email "coritanie@gmail.com"
-			sudo git config --system core.editor nano
-			git config --global credential.helper cache
-			git config --global credential.helper 'cache --timeout=32000'
-      ;;
-    * )
-      echo "#################################"
-      echo "Choose the correct number"
-      echo "#################################"
-      ;;
-esac
+echo "Everything set"
 
 echo "################################################################"
 echo "###################    T H E   E N D      ######################"
