@@ -39,8 +39,8 @@ echo
 
 	# setting of the general parameters
 	archisoRequiredVersion="archiso 62.1-1"
-	buildFolder=$HOME"/AA-build"
-	outFolder=$HOME"/AA-Out"
+	buildFolder=$HOME"/Ariser-build"
+	outFolder=$HOME"/Ariser-Out"
 	archisoVersion=$(sudo pacman -Q archiso)
 
 	echo "################################################################## "
