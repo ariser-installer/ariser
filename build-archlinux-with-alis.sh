@@ -38,7 +38,7 @@ echo
 	isoLabel='archlinux-'$(date +%Y.%m.%d)'-x86_64.iso'
 
 	# setting of the general parameters
-	archisoRequiredVersion="archiso 63-1"
+	archisoRequiredVersion="archiso 64-1"
 	buildFolder=$HOME"/Ariser-build"
 	outFolder=$HOME"/Ariser-Out"
 	archisoVersion=$(sudo pacman -Q archiso)
