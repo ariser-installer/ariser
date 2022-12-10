@@ -30,6 +30,8 @@ echo
 tput setaf 2
 echo "################################################################"
 echo "################### Let us install Arch"
+echo "####    Wait long enough so that pacman-init service is finished"
+echo "####    Check with systemctl status pacman-init"
 echo "################################################################"
 tput sgr0
 echo
