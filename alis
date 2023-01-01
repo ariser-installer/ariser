@@ -36,5 +36,8 @@ echo "################################################################"
 tput sgr0
 echo
 
+FIND='#ParallelDownloads = 5'
+REPLACE='ParallelDownloads = 5'
+sed -i "/$FIND/a $REPLACE" /etc/pacman.conf
 cd /alis
 sh start.sh

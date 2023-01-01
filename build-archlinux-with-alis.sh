@@ -145,9 +145,11 @@ echo
 	mkdir $buildFolder
 	cp -r /usr/share/archiso/configs/releng/ $buildFolder/archiso
 	echo
-	echo "Git clone ALIS + ALIS-DEV"
+	echo "Git clone ALIS"
 	mkdir $buildFolder/archiso/airootfs/alis
 	git clone https://github.com/ariser-installer/alis $buildFolder/archiso/airootfs/alis
+	
+	echo "Git clone ALIS-DEV"
 	mkdir $buildFolder/archiso/airootfs/alis-dev
 	git clone https://github.com/ariser-installer/alis-dev $buildFolder/archiso/airootfs/alis-dev
 
@@ -190,11 +192,11 @@ echo
 	find $buildFolder/archiso/profiledef.sh -type f -exec sed -i "/$FIND/a $REPLACE" {} \;
 
 	echo "copy nanorc"
-	cp nanorc 	$buildFolder/archiso/airootfs/etc/nanorc
+	cp nanorc $buildFolder/archiso/airootfs/etc/nanorc
 
 	echo "copy alis"
 	mkdir -p $buildFolder/archiso/airootfs/usr/bin
-	cp alis 	$buildFolder/archiso/airootfs/usr/bin
+	cp alis $buildFolder/archiso/airootfs/usr/bin/alis
 
 	FIND='livecd-sound'
 	REPLACE='  ["/usr/bin/alis"]="0:0:755"'
@@ -207,7 +209,6 @@ echo
 	FIND='livecd-sound'
 	REPLACE='  ["/usr/bin/alis-dev"]="0:0:755"'
 	find $buildFolder/archiso/profiledef.sh -type f -exec sed -i "/$FIND/a $REPLACE" {} \;
-
 
 #echo
 #echo "################################################################## "
