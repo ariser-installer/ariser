@@ -210,6 +210,10 @@ echo
 	REPLACE='  ["/usr/bin/alis-dev"]="0:0:755"'
 	find $buildFolder/archiso/profiledef.sh -type f -exec sed -i "/$FIND/a $REPLACE" {} \;
 
+	FIND='DownloadUser = alpm'
+	REPLACE='#DownloadUser = alpm'
+	find $buildFolder/archiso/pacman.conf -type f -exec sed -i "s/$FIND/$REPLACE/g" {} \;
+
 #echo
 #echo "################################################################## "
 #tput setaf 2
